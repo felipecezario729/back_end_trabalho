@@ -1,0 +1,10 @@
+ECHO est� ativado.
+# Ignora a pasta do ambiente virtual (que está gerando os warnings)
+/projeto_senac/
+
+# Arquivos de banco de dados locais
+db.sqlite3
+
+# Arquivos de cache e outras dependências
+*.pyc
+.env
