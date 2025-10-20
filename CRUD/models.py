@@ -1,20 +1,14 @@
 from django.db import models
-
-
-# Create your models here.
-# CRUD/models.py (Deve conter apenas a definição do modelo)
-
-
+from django.utils import timezone
 
 class Pessoa(models.Model):
     nome = models.CharField(max_length=100)
     telefone = models.CharField(max_length=15)
     email = models.EmailField(max_length=100)
     qtd_pessoas = models.IntegerField()
-    
-    
-    # ... outros métodos ou metadados, se houver ...
-    
- 
+    hora_chegada = models.DateTimeField(default=timezone.now)  # <- corrigido aqui
+    atendido = models.BooleanField(default=False)
+
     def __str__(self):
-        return f"{self.nome} {self.telefone} {self.email} {self.qtd_pessoas}"
+        return f"{self.nome} {self.telefone} {self.email} {self.qtd_pessoas} {self.hora_chegada} {self.atendido}"
+
