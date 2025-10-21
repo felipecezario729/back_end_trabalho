@@ -57,6 +57,40 @@
             background-color: #d9534f;
             border-color: #d9534f;
         }
+        body {
+            background-color: #f3e9dd;
+            color: #333333;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        h1, h2, h3 {
+            color: #8B0000;
+        }
+
+        .card {
+            background-color: #fefefe;
+            border: 1px solid #ddd;
+        }
+
+        .btn-success {
+            background-color: #198754;
+            border-color: #198754;
+        }
+
+        .btn-warning {
+            background-color: #fd7e14;
+            border-color: #fd7e14;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        a, .text-muted {
+            color: #343a40;
+        }
+
     </style>
 </head>
 <body>
@@ -151,7 +185,7 @@
     <hr class="mb-5" />
 
     <!-- Tabela de registros -->
-    <h2 class="mb-3">Registros Cadastrados</h2>
+    <h2 class="mb-3">Nossos Cardapios</h2>
 
     {% if mostrar_tabela %}
     <div class="table-responsive mb-5">
@@ -192,7 +226,7 @@
         </table>
     </div>
     {% else %}
-        <p class="text-muted text-center">A exibição dos registros está desativada.</p>
+        <p class="text-muted text-center"></p>
     {% endif %}
 
     <!-- Seção com fotos das carnes e pratos servidos -->
