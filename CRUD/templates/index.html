@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -103,38 +104,69 @@
 
         <div class="header-text text-center">
             <h1 class="display-4 fw-bold">Churrascaria Gaúcha: Sabor e Tradição</h1>
-            <p class="lead">Gerencie seus pedidos de forma eficiente.</p> 
+            <p class="lead">Venha Saborear o melhor churrasco da Cidade</p> 
         </div>
     </div>
+    <!-- História da Churrascaria -->
+<div class="card p-4 shadow-sm mb-5" style="background-color: #fffaf0; border-left: 6px solid #8B0000;">
+    <h3 class="text-center mb-4" style="color: #8B0000;">
+        🐂 Churrascaria Gaúcha: 39 Anos de Sabor e Tradição
+    </h3>
 
-    <!-- Formulário de cadastro -->
-    <div class="card p-4 shadow-sm mb-5">
-        <h5 class="card-title mb-3">Novo Registro</h5>
+    <p style="text-align: justify;">
+        Fundada há <strong>39 anos</strong> no coração da cidade, a <strong>Churrascaria Gaúcha</strong> nasceu do sonho de uma família apaixonada pelo verdadeiro churrasco do sul do Brasil.
+        O patriarca, <strong>Seu Antônio Ribeiro</strong>, um gaúcho de porte firme e sorriso acolhedor, trouxe consigo não apenas a arte do espeto e do fogo, mas também o respeito pela tradição e o prazer de servir bem.
+    </p>
 
-        <form action="{% url 'url_para_salvar' %}" method="POST">
-            {% csrf_token %}
+    <p style="text-align: justify;">
+        Desde o primeiro dia, o aroma da carne assando lentamente na brasa tornou-se um convite irresistível.
+        A cada corte servido, a cada risada compartilhada entre amigos e famílias, a Churrascaria Gaúcha foi construindo uma história marcada por <strong>sabor, hospitalidade e autenticidade</strong>.
+    </p>
 
-            <div class="row g-3">
-                <div class="col-md-3">
-                    <label for="id_nome" class="form-label">Nome</label>
-                    <input type="text" class="form-control" id="id_nome" name="nome" placeholder="Nome Completo" required />
-                </div>
-                <div class="col-md-3">
-                    <label for="id_telefone" class="form-label">Telefone</label>
-                    <input type="text" class="form-control" id="id_telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" required /> 
-                </div>
-                <div class="col-md-3">
-                    <label for="id_email" class="form-label">E-mail</label>
-                    <input type="email" class="form-control" id="id_email" name="email" placeholder="email@exemplo.com" required /> 
-                </div>
-                <div class="col-md-2">
+    <p style="text-align: justify;">
+        Com o passar dos anos, o restaurante cresceu, modernizou seu salão e ampliou o cardápio — mas sem jamais perder sua essência.
+        Hoje, a terceira geração da família mantém vivo o legado de Seu Antônio, preservando as receitas originais, o tempero caseiro e o carinho no atendimento.
+    </p>
+
+    <p style="text-align: justify;">
+        Mais do que um restaurante, a Churrascaria Gaúcha é um <strong>ponto de encontro de gerações</strong>, um lugar onde cada refeição é uma celebração e cada cliente faz parte dessa história de quase quatro décadas.
+    </p>
+
+    <p style="text-align: justify; color: darkred; font-weight: bold; text-align: center;">
+        Porque aqui, tradição não é apenas o que servimos — é o que vivemos todos os dias. 🔥🥩🇧🇷
+    </p>
+</div>
+
+
+    
+   <!-- Formulário de Reserva -->
+    <div class="card p-4 shadow-sm mb-5" style="border-left: 6px solid #8B0000;">
+        <div class="text-center mb-4">
+            <h4 style="color: #8B0000; font-weight: bold;">Faça aqui sua Reserva</h4>
+            <p class="text-muted">Garanta seu lugar para o melhor churrasco da cidade 🔥🥩</p>
+        </div>
+
+        <form action="{% url 'url_para_salvar' %}" method="POST" class="row g-3 justify-content-center">
+                {% csrf_token %}
+            <div class="col-md-3">
+                <label for="id_nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="id_nome" name="nome" placeholder="Nome Completo" required />
+            </div>
+            <div class="col-md-3">
+                <label for="id_telefone" class="form-label">Telefone</label>
+                <input type="text" class="form-control" id="id_telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" required />
+            </div>
+            <div class="col-md-3">
+                <label for="id_email" class="form-label">E-mail</label>
+                <input type="email" class="form-control" id="id_email" name="email" placeholder="email@exemplo.com" required />
+            </div>
+            <div class="col-md-2">
                     <label for="id_qtd" class="form-label">Qtd. Pessoas</label>
-                    <input type="number" class="form-control" id="id_qtd" name="qtd_pessoas" required min="1" value="1" /> 
-                </div>
+                    <input type="number" class="form-control" id="id_qtd" name="qtd_pessoas" required min="1" value="1" />
+            </div>
                 <div class="col-md-1 d-flex align-items-end">
                     <button type="submit" class="btn btn-success w-100">Salvar</button>
                 </div>
-            </div>
         </form>
     </div>
 
@@ -169,7 +201,7 @@
                     </div>
                 </div>
             </div>
-
+          
             <!-- Botões de navegação -->
             <button class="carousel-control-prev" type="button" data-bs-target="#carrosselSalao" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -249,8 +281,54 @@
             </div>
             {% endfor %}
         </div>
-        
+
     </div>
+  
+
+      <!-- Seção do Espaço Kids -->
+      <div class="mb-5">
+        <h3 class="text-center mb-4" style="color: darkblue;">Espaço Kids O lugar ideal para comemorar o aniversario do seu Filho</h3>
+  
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+              <div class="card h-100 shadow-sm">
+                  <img src="{% static 'fotoskids/fotokids1.jpg' %}" 
+                       class="card-img-top" 
+                       alt="Espaço Kids 1" 
+                       style="height: 220px; object-fit: cover;">
+                  <div class="card-body">
+                      <h5 class="card-title text-center">Diversão Garantida</h5>
+                      <p class="card-text text-center">Brinquedos e atividades para todas as idades.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <div class="col">
+              <div class="card h-100 shadow-sm">
+                  <img src="{% static 'fotoskids/fotokids2.jpg' %}" 
+                       class="card-img-top" 
+                       alt="Espaço Kids 2" 
+                       style="height: 220px; object-fit: cover;">
+                  <div class="card-body">
+                      <h5 class="card-title text-center">Ambiente Seguro</h5>
+                      <p class="card-text text-center">Monitores atentos para a segurança das crianças.</p>
+                  </div>
+              </div>
+          </div>
+  
+          <div class="col">
+              <div class="card h-100 shadow-sm">
+                  <img src="{% static 'fotoskids/fotokids3.jpg' %}" 
+                       class="card-img-top" 
+                       alt="Espaço Kids 3" 
+                       style="height: 220px; object-fit: cover;">
+                  <div class="card-body">
+                      <h5 class="card-title text-center">Espaço Interativo</h5>
+                      <p class="card-text text-center">Jogos, leitura e muita diversão.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
