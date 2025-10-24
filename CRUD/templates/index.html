@@ -336,4 +336,58 @@
         crossorigin="anonymous">
 </script>
 </body>
+<!-- Rodapé -->
+<footer class="text-light py-5 mt-5" style="background-color: #000;">
+    <div class="container">
+        <div class="row">
+            <!-- Localização -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">LOCALIZAÇÃO</h5>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-map-marker-alt text-danger me-2"></i> Projeto final Senac-Rj</li>
+                </ul>
+
+                <h5 class="fw-bold mt-4">HORÁRIOS</h5>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-clock text-danger me-2"></i> Segunda à Sábado de 12:00h às 23:00h</li>
+                    <li><i class="fa fa-clock text-danger me-2"></i> Domingos e Feriados de 12:00h às 22:00h</li>
+                </ul>
+            </div>
+
+            <!-- Formas de Pagamento -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">FORMAS DE PAGAMENTO</h5>
+                <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
+                    <img src="{% static 'icones/mastercard.png' %}" alt="Mastercard" height="35">
+                    <img src="{% static 'icones/visa.png' %}" alt="Visa" height="35">
+                    <img src="{% static 'icones/elo.png' %}" alt="Elo" height="35">
+                    <img src="{% static 'icones/vr.png' %}" alt="VR" height="35">
+                    <img src="{% static 'icones/ticket.png' %}" alt="Ticket" height="35">
+                </div>
+            </div>
+
+            <!-- Promoções -->
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">PROMOÇÕES ESPECIAIS</h5>
+                <p>Receba promoções especiais e novidades da Churrascaria Gaúcha no seu e-mail.</p>
+                <form>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Email" required>
+                        <button class="btn btn-danger" type="submit">ENVIAR</button>
+                    </div>
+                </form>
+
+                <h5 class="fw-bold mt-4">SIGA-NOS</h5>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="#" class="text-light fs-4"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light fs-4"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <hr class="border-secondary" />
+        <p class="text-center text-muted mb-0">© 2025 Churrascaria Gaúcha - Todos os direitos reservados.</p>
+    </div>
+    </footer>
+
 </html>
