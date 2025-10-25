@@ -1,0 +1,215 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reserva - Churrascaria Gaúcha</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" 
+          crossorigin="anonymous" />
+
+    <style>
+        /* Replicando estilos principais para manter a consistência */
+        body {
+            background-color: #f3e9dd;
+            color: #333333;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        h1, h2, h3 {
+            color: #8B0000;
+        }
+        .card {
+            background-color: #fefefe;
+            border: 1px solid #ddd;
+        }
+        .btn-success {
+            background-color: #198754;
+            border-color: #198754;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .header-image {
+            max-width: 100%;
+            height: 200px; /* Mais baixo que na home */
+            object-fit: cover;
+            filter: brightness(0.7);
+            border-radius: 8px;
+        }
+        .header-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            width: 100%;
+        }
+        .header-text h1 {
+            color: #ffcc00;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="position-relative mb-5">
+        <img src="{% static 'churrascaria_gaucha.jpg' %}" 
+              alt="Restaurante Gaúcho" 
+              class="img-fluid header-image w-100" />
+
+        <div class="header-text text-center">
+            <h1 class="display-5 fw-bold">Faça Sua Reserva</h1>
+            <p class="lead">Garanta sua mesa com antecedência e desfrute do nosso churrasco!</p> 
+            <a href="{% url 'home' %}" class="btn btn-warning mt-2">
+                <i class="fas fa-home me-2"></i> Voltar para a Home
+            </a>
+        </div>
+    </div>
+    
+    <div class="card p-5 shadow-lg mb-5" style="border-left: 8px solid #8B0000;">
+        <div class="text-center mb-4">
+            <h2 style="color: #8B0000; font-weight: bold;">Confirmação de Mesa</h2>
+            <p class="text-muted">Preencha os detalhes abaixo para finalizar sua reserva.</p>
+        </div>
+
+        <form action="{% url 'url_para_salvar' %}" method="POST" class="row g-4 justify-content-center">
+            {% csrf_token %}
+            
+            <div class="col-md-6">
+                <label for="id_nome" class="form-label fw-bold">Nome Completo</label>
+                <input type="text" class="form-control form-control-lg" id="id_nome" name="nome" placeholder="Seu nome" required />
+            </div>
+            
+            <div class="col-md-6">
+                <label for="id_email" class="form-label fw-bold">E-mail</label>
+                <input type="email" class="form-control form-control-lg" id="id_email" name="email" placeholder="email@exemplo.com" required />
+            </div>
+
+            <div class="col-md-4">
+                <label for="id_telefone" class="form-label fw-bold">Telefone</label>
+                <input type="text" class="form-control form-control-lg" id="id_telefone" name="telefone" placeholder="(xx) xxxxx-xxxx" required />
+            </div>
+            
+            <div class="col-md-4">
+                <label for="id_data" class="form-label fw-bold">Data da Reserva</label>
+                <input type="date" class="form-control form-control-lg" id="id_data" name="data_reserva" required />
+            </div>
+            
+            <div class="col-md-4">
+                <label for="id_qtd" class="form-label fw-bold">Qtd. Pessoas</label>
+                <input type="number" class="form-control form-control-lg" id="id_qtd" name="qtd_pessoas" required min="1" value="1" />
+            </div>
+
+            <div class="col-12 text-center mt-5">
+                <button type="submit" class="btn btn-success btn-lg px-5 py-3 shadow">
+                    <i class="fas fa-check-circle me-2"></i> Confirmar Reserva
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="row text-center mb-5">
+        <div class="col-md-4">
+            <i class="fa fa-clock fa-3x text-danger mb-3"></i>
+            <h4>Horário de Funcionamento</h4>
+            <p>Segunda à Sábado: 12:00h às 23:00h<br>Domingos e Feriados: 12:00h às 22:00h</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa fa-info-circle fa-3x text-danger mb-3"></i>
+            <h4>Política de Reserva</h4>
+            <p>Sua mesa será reservada por até 15 minutos após o horário agendado.</p>
+        </div>
+        <div class="col-md-4">
+            <i class="fa fa-child fa-3x text-danger mb-3"></i>
+            <h4>Espaço Kids Disponível</h4>
+            <p>Traga seus filhos! Temos área de lazer monitorada.</p>
+        </div>
+    </div>
+    <div class="mb-5">
+        <h3 class="text-center mb-4" style="color: #8B0000;">Galeria e deposito de vinhos</h3>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for i in "123456" %}
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <img src="{% static 'fotosreserva/foto' %}{{ i }}.png"
+                         class="card-img-top"
+                         alt="galeria {{ i }}"
+                         style="height: 220px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">espaço {{ i }}</h5>
+                        <p class="card-text text-center">Um pouco do nosso espaço.</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" 
+        crossorigin="anonymous">
+</script>
+</body>
+<footer class="text-light py-5 mt-5" style="background-color: #000;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">LOCALIZAÇÃO</h5>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-map-marker-alt text-danger me-2"></i> Projeto final Senac-Rj</li>
+                </ul>
+
+                <h5 class="fw-bold mt-4">HORÁRIOS</h5>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-clock text-danger me-2"></i> Segunda à Sábado de 12:00h às 23:00h</li>
+                    <li><i class="fa fa-clock text-danger me-2"></i> Domingos e Feriados de 12:00h às 22:00h</li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">FORMAS DE PAGAMENTO</h5>
+                <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
+                    <img src="{% static 'icones/mastercard.png' %}" alt="Mastercard" height="35">
+                    <img src="{% static 'icones/visa.png' %}" alt="Visa" height="35">
+                    <img src="{% static 'icones/elo.png' %}" alt="Elo" height="35">
+                    <img src="{% static 'icones/vr.png' %}" alt="VR" height="35">
+                    <img src="{% static 'icones/ticket.png' %}" alt="Ticket" height="35">
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <h5 class="fw-bold">PROMOÇÕES ESPECIAIS</h5>
+                <p>Receba promoções especiais e novidades da Churrascaria Gaúcha no seu e-mail.</p>
+                <form>
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Email" required>
+                        <button class="btn btn-danger" type="submit">ENVIAR</button>
+                    </div>
+                </form>
+
+                <h5 class="fw-bold mt-4">SIGA-NOS</h5>
+                <div class="d-flex gap-3 mt-3">
+                    <a href="#" class="text-light fs-4"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-light fs-4"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="border-secondary" />
+        <p class="text-center text-muted mb-0">© 2025 Churrascaria Gaúcha - Todos os direitos reservados.</p>
+    </div>
+</footer>
+
+</html>

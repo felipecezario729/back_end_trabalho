@@ -3,18 +3,7 @@
 from django.db import models
 from .models import Pessoa 
 from django.shortcuts import render, redirect
-# PROVAVELMENTE NO SEU CRUD/views.py
 
-
-# Importe seu modelo 'Pessoa' (ajuste o caminho se necessário)
-
-# Certifique-se de que a função 'home' está no escopo de 'redirect'
-
-# CRUD/views.py (Código Corrigido)
-
-from django.shortcuts import render, redirect
-# 🌟 OBRIGATÓRIO: APENAS IMPORTE O MODELO, NÃO O DEFINA AQUI!
-from .models import Pessoa 
 
 # Suas funções de View
 def home(request):
@@ -40,6 +29,15 @@ def delete(request, id):
     pessoa.delete()
     return redirect(home)
 # CRUD/views.py
+
+
+
+def home(request):
+    return render(request, 'index.html')
+
+def reserva(request):
+    return render(request, 'reserva.html')
+
 
 
 

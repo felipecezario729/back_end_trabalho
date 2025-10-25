@@ -18,15 +18,30 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include # 👈 Garanta que 'include' está aqui!
-
+from django.urls import path
+from CRUD import views
 urlpatterns = [
     # 1. URLs do Admin
     path('admin/', admin.site.urls),
-    
+   
     # 2. URLs do seu app CRUD
     # A rota vazia ('') significa que as URLs do CRUD serão carregadas na raiz do site.
     path('', include('CRUD.urls')), # 🚨 CORREÇÃO APLICADA AQUI 🚨
     
+
+
+
+    path('', views.home, name='home'),
+    path('reserva/', views.reserva, name='reserva'),
+
+
+
+    path('admin/', admin.site.urls),
+    path('', include('CRUD.urls')),  # Inclui as urls do app CRUD
+
+
+
+   
     # Nota: Use o nome da pasta do seu app como string de importação: 'CRUD.urls'
 ]
 

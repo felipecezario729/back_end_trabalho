@@ -16,7 +16,13 @@ urlpatterns = [
     
     # Mapeia a URL 'delete/ID/' para a view 'delete'
     path('delete/<int:id>/', views.delete, name='url_para_deletar'),
-    
+
+
+
+    path('', views.home, name='home'),
+    path('reserva/', views.reserva, name='reserva'),
+
+
     # Se precisar de um URL para edição:
     # path('update/<int:id>/', views.update, name='url_para_update'),
 ]
