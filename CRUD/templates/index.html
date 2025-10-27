@@ -235,29 +235,165 @@
         <p class="text-muted text-center"></p>
     {% endif %}
 
-    <div class="mb-5">
-        <h3 class="text-center mb-4" style="color: #8B0000;">Carnes & Pratos Servidos</h3>
+    <body>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            {% for i in "123456" %}
-            <div class="col">
-                <div class="card h-100 shadow-sm">
-                    <img src="{% static 'pratos/prato' %}{{ i }}.jpg"
-                         class="card-img-top"
-                         alt="Prato {{ i }}"
-                         style="height: 220px; object-fit: cover;">
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Prato {{ i }}</h5>
-                        <p class="card-text text-center">Delicioso prato típico servido na casa.</p>
+        <div class="container mt-5">
+        
+            <!-- ======== SEÇÃO DE PRATOS ======== -->
+            <div class="mb-5">
+                <h3 class="text-center mb-4" style="color: #8B0000;">🥩 Carnes & Pratos Servidos</h3>
+        
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <!-- PRATO 1 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#prato1Modal">
+                            <img src="{% static 'pratos/picanha.jpg' %}" class="card-img-top" alt="Picanha" style="height: 220px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Picanha Gaúcha</h5>
+                                <p class="card-text">Suculenta e assada no ponto perfeito.</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- PRATO 2 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#prato2Modal">
+                            <img src="{% static 'pratos/costela.jpg' %}" class="card-img-top" alt="Costela" style="height: 220px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Costela de Chão</h5>
+                                <p class="card-text">Cozida lentamente, desmanchando de maciez.</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- PRATO 3 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#prato3Modal">
+                            <img src="{% static 'pratos/frango.jpg' %}" class="card-img-top" alt="Frango" style="height: 220px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Frango à Passarinho</h5>
+                                <p class="card-text">Crocante por fora e macio por dentro.</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- PRATO 4 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#prato4Modal">
+                            <img src="{% static 'pratos/linguica.jpg' %}" class="card-img-top" alt="Linguiça Artesanal" style="height: 220px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Linguiça Artesanal</h5>
+                                <p class="card-text">Produzida na casa com temperos tradicionais.</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- PRATO 5 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#prato5Modal">
+                            <img src="{% static 'pratos/salmao.jpg' %}" class="card-img-top" alt="Salmão Grelhado" style="height: 220px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Salmão Grelhado</h5>
+                                <p class="card-text">Servido com legumes salteados e arroz branco.</p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- PRATO 6 -->
+                    <div class="col">
+                        <div class="card h-100 shadow-sm" data-bs-toggle="modal" data-bs-target="#prato6Modal">
+                            <img src="{% static 'pratos/camarao.jpg' %}" class="card-img-top" alt="Camarão ao Alho e Óleo" style="height: 220px; object-fit: cover;">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Camarão ao Alho e Óleo</h5>
+                                <p class="card-text">Acompanha arroz e batata sauté.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}
+        
+        
+            <!-- ======== MODAIS DOS PRATOS ======== -->
+        
+            <!-- Modal PRATO 1 -->
+            <div class="modal fade" id="prato1Modal" tabindex="-1" aria-labelledby="prato1Label" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <img src="{% static 'pratos/picanha.jpg' %}" alt="Picanha Gaúcha">
+                  <div class="modal-body">
+                    <h4 class="fw-bold text-center">Picanha Gaúcha</h4>
+                    <p class="text-center">Acompanha arroz, farofa, vinagrete e batata frita.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Modal PRATO 2 -->
+            <div class="modal fade" id="prato2Modal" tabindex="-1" aria-labelledby="prato2Label" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <img src="{% static 'pratos/costela.jpg' %}" alt="Costela de Chão">
+                  <div class="modal-body">
+                    <h4 class="fw-bold text-center">Costela de Chão</h4>
+                    <p class="text-center">Servida com arroz carreteiro e mandioca cozida.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Modal PRATO 3 -->
+            <div class="modal fade" id="prato3Modal" tabindex="-1" aria-labelledby="prato3Label" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <img src="{% static 'pratos/frango.jpg' %}" alt="Frango à Passarinho">
+                  <div class="modal-body">
+                    <h4 class="fw-bold text-center">Frango à Passarinho</h4>
+                    <p class="text-center">Acompanha polenta frita e molho de ervas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Modal PRATO 4 -->
+            <div class="modal fade" id="prato4Modal" tabindex="-1" aria-labelledby="prato4Label" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <img src="{% static 'pratos/linguica.jpg' %}" alt="Linguiça Artesanal">
+                  <div class="modal-body">
+                    <h4 class="fw-bold text-center">Linguiça Artesanal</h4>
+                    <p class="text-center">Acompanha pão de alho e vinagrete fresco.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Modal PRATO 5 -->
+            <div class="modal fade" id="prato5Modal" tabindex="-1" aria-labelledby="prato5Label" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <img src="{% static 'pratos/salmao.jpg' %}" alt="Salmão Grelhado">
+                  <div class="modal-body">
+                    <h4 class="fw-bold text-center">Salmão Grelhado</h4>
+                    <p class="text-center">Acompanha arroz branco e legumes salteados.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <!-- Modal PRATO 6 -->
+            <div class="modal fade" id="prato6Modal" tabindex="-1" aria-labelledby="prato6Label" aria-hidden="true">
+              <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                  <img src="{% static 'pratos/camarao.jpg' %}" alt="Camarão ao Alho e Óleo">
+                  <div class="modal-body">
+                    <h4 class="fw-bold text-center">Camarão ao Alho e Óleo</h4>
+                    <p class="text-center">Acompanha arroz e batata sauté.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
         </div>
-
-    </div>
- 
-
       <div class="mb-5">
         <h3 class="text-center mb-4" style="color: darkblue;">Espaço Kids O lugar ideal para comemorar o aniversario do seu Filho</h3>
  
